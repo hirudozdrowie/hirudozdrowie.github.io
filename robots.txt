@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hirudozdrowie.com/sitemap.xml
+
+# Disallow admin/private areas (if any in future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all crawlers to access CSS and JS
+Allow: /assets/
+Allow: /icons/
+Allow: /*.css$
+Allow: /*.js$
+
+# Host
+Host: hirudozdrowie.com

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <title>HirudoZdrowie</title>
+    <script>
+      (function () {
+        // Redirect from hirudozdrowie.dawidolko.pl to hirudozdrowie.com
+        if (
+          window.location.hostname === "hirudozdrowie.dawidolko.pl" ||
+          window.location.hostname === "www.hirudozdrowie.dawidolko.pl"
+        ) {
+          window.location.replace(
+            "https://hirudozdrowie.com" +
+              window.location.pathname +
+              window.location.search +
+              window.location.hash,
+          );
+          return;
+        }
+
+        // SPA routing for Vue.js
+        var pathSegmentsToKeep = 0;
+        var loc = window.location;
+        loc.replace(
+          loc.protocol +
+            "//" +
+            loc.hostname +
+            (loc.port ? ":" + loc.port : "") +
+            loc.pathname
+              .split("/")
+              .slice(0, 1 + pathSegmentsToKeep)
+              .join("/") +
+            "/?/" +
+            loc.pathname
+              .slice(1)
+              .split("/")
+              .slice(pathSegmentsToKeep)
+              .join("/")
+              .replace(/&/g, "~and~") +
+            (loc.search
+              ? "&" + loc.search.slice(1).replace(/&/g, "~and~")
+              : "") +
+            loc.hash,
+        );
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
